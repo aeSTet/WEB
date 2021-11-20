@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+<script>
+    let arr = [];
+    let min = -10;
+    let max = 10;
+    let n = prompt('Введите n: ');
+    for (let i = 0; i < n; i++) {
+        let el = Math.floor(Math.random() * (max - min + 1) ) + min;
+        arr.push(el);
+    }
+
+    alert(arr);
+
+    let negatives = 0;
+    let negativeSum = 0;
+    let positives = 0;
+    let positiveSum = 0;
+    let zeros = 0;
+
+    for (let i = 0; i < n; i++) {
+        let el = arr[i]
+        if (el < 0) {
+            arr[i] = el * el;
+            negatives++;
+            negativeSum += el;
+        } else if (el > 0) {
+            positives++;
+            positiveSum += el;
+        } else {
+            zeros++;
+        }
+    }
+
+    alert('Ср. арифм. положительных: ' + (positiveSum / positives))
+    alert('Ср. арифм. отрицательных: ' + (negativeSum / negatives))
+    alert('Нулей: ' + zeros)
+    alert(arr);
+</script>
